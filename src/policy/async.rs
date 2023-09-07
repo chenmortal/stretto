@@ -7,7 +7,7 @@ use std::collections::hash_map::RandomState;
 use std::hash::BuildHasher;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::Arc;
-
+#[derive(Debug)]
 pub(crate) struct AsyncLFUPolicy<S = RandomState> {
     pub(crate) inner: Arc<Mutex<PolicyInner<S>>>,
     pub(crate) items_tx: Sender<Vec<u64>>,

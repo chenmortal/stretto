@@ -189,7 +189,7 @@ mod r#async;
 #[cfg(feature = "async")]
 #[cfg_attr(docsrs, doc(cfg(feature = "async")))]
 pub(crate) use r#async::AsyncLFUPolicy;
-
+#[derive(Debug)]
 pub(crate) struct PolicyInner<S = RandomState> {
     admit: TinyLFU,
     costs: SampledLFU<S>,
@@ -237,6 +237,7 @@ unsafe impl<S: BuildHasher + Clone + 'static> Send for PolicyInner<S> {}
 unsafe impl<S: BuildHasher + Clone + 'static> Sync for PolicyInner<S> {}
 
 /// SampledLFU stores key-costs paris.
+#[derive(Debug)]
 pub(crate) struct SampledLFU<S = RandomState> {
     samples: usize,
     max_cost: AtomicI64,
@@ -394,6 +395,7 @@ unsafe impl<S: BuildHasher + Clone + 'static> Sync for SampledLFU<S> {}
 
 /// TinyLFU is an admission helper that keeps track of access frequency using
 /// tiny (4-bit) counters in the form of a count-min sketch.
+#[derive(Debug)]
 pub(crate) struct TinyLFU {
     ctr: CountMinSketch,
     doorkeeper: Bloom,

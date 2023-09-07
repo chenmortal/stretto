@@ -353,6 +353,7 @@ impl<V> Item<V> {
 ///
 /// [`CacheBuilder`]: struct.CacheBuilder.html
 #[cfg_attr(docsrs, doc(cfg(feature = "async")))]
+#[derive(Debug)]
 pub struct AsyncCache<
     K,
     V,

@@ -37,6 +37,7 @@ where
 }
 
 #[cfg(feature = "async")]
+#[derive(Debug)]
 pub struct AsyncRingStripe<S> {
     cons: Arc<AsyncLFUPolicy<S>>,
     data: Mutex<Vec<u64>>,

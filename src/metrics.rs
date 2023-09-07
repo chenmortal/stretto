@@ -86,7 +86,7 @@ impl Display for MetricType {
 /// Metrics is a snapshot of performance statistics for the lifetime of a cache instance.
 ///
 /// Metrics promises thread-safe.
-#[derive(Clone)]
+#[derive(Clone,Debug)]
 pub enum Metrics {
     /// No operation metrics
     Noop,
@@ -259,7 +259,7 @@ impl Display for Metrics {
     }
 }
 
-#[derive(Clone)]
+#[derive(Clone,Debug)]
 pub struct MetricsInner {
     /// use Arc and AtomicU64 implement lock-free fearless-concurrency
     all: Arc<BTreeMap<MetricType, [AtomicU64; SIZE_FOR_EACH_TYPE]>>,

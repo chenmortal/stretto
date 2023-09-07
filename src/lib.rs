@@ -318,6 +318,7 @@ pub trait UpdateValidator: Send + Sync + 'static {
 
 /// DefaultUpdateValidator is a noop update validator.
 #[doc(hidden)]
+#[derive(Debug)]
 pub struct DefaultUpdateValidator<V> {
     _marker: PhantomData<fn(V)>,
 }
@@ -403,6 +404,7 @@ pub trait Coster: Send + Sync + 'static {
 
 /// DefaultCoster is a noop Coster implementation.
 #[doc(hidden)]
+#[derive(Debug)]
 pub struct DefaultCoster<V> {
     _marker: PhantomData<fn(V)>,
 }

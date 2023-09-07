@@ -44,6 +44,7 @@ fn calc_size_by_wrong_positives(num_entries: usize, wrongs: f64) -> EntriesLocs 
 
 /// Bloom filter
 #[repr(C)]
+#[derive(Debug)]
 pub(crate) struct Bloom {
     bitset: Vec<u64>,
     elem_num: u64,

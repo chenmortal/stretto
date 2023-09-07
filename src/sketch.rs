@@ -77,6 +77,7 @@ impl Debug for CountMinRow {
 
 /// `CountMinSketch` is a small conservative-update count-min sketch
 /// implementation with 4-bit counters
+#[derive(Debug)]
 pub(crate) struct CountMinSketch {
     rows: [CountMinRow; DEPTH],
     seeds: [u64; DEPTH],
